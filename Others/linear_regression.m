@@ -1,13 +1,13 @@
 clc; clear all; close all;
-%data generation
-m=51;
+m=25;
 f=@(x)15*x+5;
 x=linspace(0,1,m);
 y=f(x)+normrnd(0,0.4,size(x));
 plot(x,y,'o')
+
 %linear regression
 w1=rand(1); w0=rand(1);
-alp=1.5;
+alp=1;
 J(1)=0.5/m*sum((y-w1*x-w0).^2);
 err=1; iter=1;
 while(err>1.e-5)
@@ -18,7 +18,7 @@ while(err>1.e-5)
     w1=w1+dw1;
     iter=iter+1;
     J(iter)=0.5/m*sum((y-w1*x-w0).^2);
-    err=abs(J(iter)-J(iter-1)); %norm([dw0,dw1])
+    err=abs(J(iter)-J(iter-1));
     subplot(2,1,1)
     plot(x,y,'o',x,yh,'r')
     xlabel('x');
