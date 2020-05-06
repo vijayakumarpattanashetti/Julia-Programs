@@ -1,10 +1,9 @@
 clc; clear all; close all;
-i=input('Enter first order system, for eg. [1 0], i:');
-j=input('Enter first order system, for eg. [2 5], j:');
+x=input('Enter output, for 1x enter, [1 0], i:');
+y=input('Enter input, for 2x+5 enter, [2 5], j:');
 G=tf(i,j);
 subplot(2,1,1)
-%pole-zero plot
-pzmap(G)
+pzmap(G) %pole-zero plot
 subplot(2,1,2)
 %time response
 step(G) %linearSystemAnalyzer('step',G)
